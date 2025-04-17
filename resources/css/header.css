@@ -1,0 +1,313 @@
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: var(--first-color);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 15px;
+  border-bottom: var(--second-color) 3px solid;
+  z-index: 2; 
+  transition: top 0.5s ease-in-out;
+}
+
+/* Maschera di sfondo per l'effetto blur */
+#blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Colore bianco semitrasparente */
+  backdrop-filter: blur(2px); /* Effetto blur */
+  z-index: -1; /* Copre tutta la visuale ma non l'header */
+  transition: opacity 0.5s ease; /* Effetto di transizione */
+}
+
+/* Quando l'effetto blur è attivo */
+#blur.active {
+  z-index: 2;
+  opacity: 1; /* Diventa visibile */
+}
+
+/* Menu di navigazione laterale */
+#sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #171718;
+  z-index: 3;
+  overflow-x: hidden; /* Disabilita lo scroll orizzontale */
+  padding-top: 20px;
+  border-right: 0 solid var(--second-color);
+  transition: width 0.4s ease-in-out, border-right-width 0.4s ease-in-out;
+  white-space: nowrap;  /* Assicura che gli elementi della sidenav non vadano a capo */
+}
+
+/* Quando il menu laterale è aperto */
+#sidenav.active {
+  width: 280px; /* Diventa visibile */
+  border-right-width: 3px;
+}
+
+.sidenav-content {
+  padding: 10px 15px;
+  height: 95vh;
+}
+
+.sidenav-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.close-button {
+  margin-bottom: 5vh;
+}
+
+.close-text {
+  color: var(--fifth-color);
+  margin-bottom: 0;
+  font-size: var(--text-size-xlarge);
+}
+
+.close-X {
+  color: var(--fifth-color);
+  margin-bottom: 0;
+  font-size: var(--text-size-xxlarge);
+}
+
+.close-text span {
+  font-size: var(--text-size-large);
+}
+
+#sidenav .catalogo {
+  text-decoration: underline;
+  color: var(--fifth-color);
+  font-size: var(--text-size-xlarge);
+  transition: color 0.3s ease;
+}
+#sidenav .catalogo:hover {
+  color: var(--second-color);
+}
+
+#sidenav .filtri-catalogo {
+  margin-top: 15px;
+}
+
+#sidenav .filtra-catalogo, .sidenav-bottom-link {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: var(--text-size-large);
+  color: var(--fifth-color);
+  display: block;
+  transition: color 0.3s ease;
+}
+#sidenav .filtra-catalogo:hover, .sidenav-bottom-link:hover {
+  color: var(--second-color);
+}
+
+#sidenav .sidenav-bottom {
+  margin-top: 150px;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+
+.sidenav-bottom-link {
+  padding: 8px 0;
+  text-decoration: none;
+  font-size: var(--text-size-medium);
+  color: var(--fifth-color);
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Centra l'elemento orizzontalmente */
+}
+
+.header-title a {
+  font-family: var(--font-title);
+  font-size: var(--text-size-xxlarge);
+  color: white;
+}
+
+/* Icone */
+#navbar i {
+  color: white;
+  margin: 0 10px;
+  font-size: var(--text-size-medium);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  /* Regola la transizione da un colore all'altro */
+}
+
+#navbar i:hover,
+a:hover {
+  color: var(--second-color);
+  /* Transizione al colore second-color */
+}
+
+#navbar .left-icons {
+  padding-left: 54px;
+}
+
+
+
+
+.sub-menu-wrap {
+  position: absolute;
+  right: 4%;
+  width: 275px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+  max-height: 400px;
+}
+
+.sub-menu {
+  background-color: whitesmoke;
+  padding: 20px;
+  margin: 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  color: var(--first-color);
+}
+
+.user-icon {
+  background-color: transparent;
+  border: none;
+}
+
+.sub-menu hr {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background-color: black;
+  margin: 15px 0 10px 0;
+}
+
+.sub-menu-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  margin: 10px 0;
+}
+
+.sub-menu-link p {
+  width: 100%;
+  color: var(--first-color);
+}
+
+.sub-menu-link img {
+  width: 40px;
+  background-color: #e5e5e5;
+  border-radius: 50%;
+  padding: 8px;
+  margin-right: 15px;
+}
+
+.sub-menu-link span {
+  font-size: 22px;
+  color: var(--first-color);
+  transform: transform 0.5s;
+}
+
+.sub-menu-link:hover span {
+  transform: translateX(5px);
+}
+
+.sub-menu-link:hover p {
+  font-weight: 600;
+}
+
+/* Rende l'header responsive per tablet */
+@media (max-width: 780px) {
+  #sidenav.active {
+    width: 200px;
+  }
+}
+
+/* Rende l'header responsive per smartphone */
+@media (max-width: 600px) {
+
+  .sub-menu {
+    padding: 12px;
+  }
+
+  .sub-menu-wrap {
+    width: 175px;
+    right: 7.4%;
+  }
+
+  .user-info {
+    font-size: 14px;
+  }
+
+  .sub-menu hr {
+    margin: 8px 0 10px 0;
+  }
+
+  .sub-menu-link img{
+    width: 30px;
+  }
+
+  .sub-menu-link p{
+    font-size: 14px;
+  }
+
+  .sub-menu-link span {
+    font-size: 18px;
+  }
+
+  #sidenav.active {
+    width: 100%;
+    border: none;
+  }
+
+  #sidenav .filtra-catalogo, .sidenav-bottom-link {
+    padding: 8px 8px 8px 32px;
+    display: inline-block;
+
+  }
+
+
+  /* Icone */
+  #navbar i {
+    font-size: var(--text-size-small);
+    margin: 0 5px;
+  }
+
+
+  #navbar .left-icons {
+    padding-left: 20px;
+  }
+
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+
+  .header-title a {
+    font-size: var(--text-size-large);
+  }
+
+}

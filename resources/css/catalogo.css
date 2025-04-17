@@ -1,0 +1,131 @@
+.heading {
+    text-align: left;
+    font-weight: bold;
+}
+
+.alert-container {
+    display: block;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    height: 0;
+    transition: height 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+}
+.alert-container.show {
+    height: 50px;
+    opacity: 1;
+}
+
+/* Stile per l'alert */
+.alert {
+    background-color: whitesmoke;
+    color: var(--third-color);
+    font-size: var(--text-size-medium);
+    padding: 10px 15px;
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Effetto 3D sollevato */
+    transform: translateY(-2px); /* Solleva leggermente l'alert */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizione per l'effetto */
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.filter {
+    background-color: var(--first-color);
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: var(--text-size-medium);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100px;
+}
+.filter:hover {
+    background-color: var(--second-color);
+    transform: scale(1.05);
+}
+.filter.active {
+    background-color: var(--second-color);
+    transform: scale(1.05);
+}
+
+/* Responsive grazie alla proprietà auto-fill */
+.catalogo-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin: 30px;
+}
+
+
+.catalogo-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.catalogo-item img {
+    display: block;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.catalogo-info {
+    padding: 15px;
+}
+
+.catalogo-info .descrizione {
+    font-size: var(--text-size-medium);
+    margin-bottom: 10px;
+}
+
+.catalogo-info .prezzo {
+    font-size: var(--text-size-medium);
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.catalogo-info .categoria {
+    font-size: var(--text-size-small);
+    color: #777;
+}
+
+
+
+/* Stile per la call to action */
+.catalogo-item .add-to-cart {
+    position: absolute;
+    white-space: nowrap;
+    bottom: 10px;
+    right: 10px;
+    background-color: var(--first-color);
+    color: #fff;
+    cursor: pointer;
+    padding: 7px 8px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: var(--text-size-medium);
+    transition: opacity 0.4s ease;
+    opacity: 0;
+}
+
+/* Mostra la call to action al passaggio del mouse */
+.catalogo-item:hover .add-to-cart {
+    opacity: 1;
+}

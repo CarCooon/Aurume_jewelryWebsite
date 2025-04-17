@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@font-face {
+    font-family: 'Font Titolo';
+    src: url('../fonts/Galmine.otf') format('opentype');
+}
+
+
+:root {
+    /* Colori del Brand */
+    --first-color: #023c35;
+    --second-color: #d4af37;
+    --third-color: #000000;
+    --fourth-color: #333;
+    --fifth-color: whitesmoke;
+
+    /* Font Testo */
+    --font-text: 'Inter', sans-serif;
+    /* Font Titolo */
+    --font-title: 'Font Titolo';
+    /* Dimensioni del Testo */
+    --text-size-small: 12px;
+    --text-size-medium: 16px;
+    --text-size-large: 20px;
+    --text-size-xlarge: 24px;
+    --text-size-xxlarge: 32px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-text);
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--fifth-color);
+}
+
+main {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+h1 {
+
+    margin: 50px;
+    font-size: var(--text-size-xxlarge);
+    color: var(--first-color);
+}
+
+h2 {
+    font-size: var(--text-size-xlarge);
+    color: var(--first-color);
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: var(--text-size-large);
+    color: var(--first-color);
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: var(--text-size-medium);
+    color: var(--fourth-color);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}

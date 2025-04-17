@@ -1,0 +1,203 @@
+.form-container { 
+    display: none; 
+    position: relative; /* Necessario per il posizionamento assoluto dell'alert */
+}
+
+.active { 
+    display: flex; 
+    flex-direction: column; /* Gli elementi all'interno sono disposti in colonna */
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+}
+
+.form-container form {
+    background-color: whitesmoke;
+    width: 100%; /* Il form occupa tutta la larghezza del contenitore */
+    max-width: 500px; /* Limito la larghezza massima del form */
+    padding: 20px;
+    border-radius: 15px;
+    position: relative; /* Necessario per il posizionamento assoluto dell'alert */
+}
+
+.form-container h2 {
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+input {
+    width: 100%; /* Gli input occupano tutta la larghezza del form */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: var(--first-color);
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--second-color);
+    color: var(--third-color);
+}
+
+.form-container .button {
+    display: block;
+    background-color: whitesmoke;
+    border: 2px solid var(--third-color);
+    color: var(--third-color);
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.form-container .button:hover {
+    background-color:rgb(203, 203, 203);
+}
+
+.form-container label, input {
+    display: block;
+    font-size: var(--text-size-medium);
+    color: var(--fourth-color);
+    margin-bottom: 5px;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    width: calc(100% - 40px); /* Stessa larghezza delle caselle del form */
+    text-align: left;
+    position: absolute; /* Posizionamento assoluto */
+    top: 55px; /* Posiziono l'alert sotto il tag h2 */
+    z-index: 1; /* Assicuro che l'alert sia sopra gli altri elementi */
+}
+
+.alert-container {
+    display: none; /* Nascondo il container finché non viene attivato */
+    width: 100%;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    z-index: 1;
+}
+
+.alert-container.show {
+    display: block; /* Mostra l'alert quando necessario */
+    height: auto;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Stile per l'alert */
+.alert {
+    background-color: whitesmoke;
+    color: var(--third-color);
+    font-size: var(--text-size-medium);
+    padding: 10px 15px;
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Effetto 3D sollevato */
+    transform: translateY(-2px); /* Solleva leggermente l'alert */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizione per l'effetto */
+}
+
+.hidden {
+    display: none;
+}
+
+.icon-spacing {
+    margin-right: 10px;
+}
+
+/* Stile per i campi di input */
+input {
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 8px;
+    width: 100%;
+    font-size: 16px;
+    background: transparent;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input:focus {
+    border-bottom: 2px solid var(--third-color);
+    box-shadow: 0 2px 0 var(--third-color);
+}
+
+input.valid {
+    border-bottom: 2px solid green;
+    box-shadow: 0 2px 0 rgba(0, 128, 0, 0.5);
+}
+
+input.invalid {
+    border-bottom: 2px solid red;
+    box-shadow: 0 2px 0 rgba(255, 0, 0, 0.5);
+    position: relative;
+}
+
+/* Evita che il layout cambi quando il bordo diventa verde o rosso */
+input.valid, input.invalid {
+    border-bottom-width: 2px;
+}
+
+input.invalid::after {
+    content: attr(data-error); /* Mostra il messaggio dinamico */
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    left: 0;
+    bottom: -18px; /* Posiziona il messaggio sotto l'input */
+    width: 100%;
+}
+
+/* Stile per i messaggi di errore */
+.input-container {
+    position: relative; /* Per posizionare correttamente il messaggio di errore */
+    margin-bottom: 20px; /* Distanza tra gli input */
+}
+
+.error-message {
+    position: absolute;
+    left: 0;
+    bottom: -18px; /* Distanza dal campo input */
+    font-size: 12px;
+    color: red;
+    display: none;
+}
+
+@media (max-width: 600px) {
+
+    .alert-error {
+        padding: 5px 15px;
+    }
+
+    span {
+        font-size: 13px;
+    }
+
+    .alert {
+        padding: 5px 10px;
+        font-size: var(--text-size-medium);
+    }
+
+    .form-container p {
+        font-size: 13px;
+    }
+}
